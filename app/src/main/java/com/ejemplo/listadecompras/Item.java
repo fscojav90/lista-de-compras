@@ -12,20 +12,24 @@ public class Item {
     long id;
     String nombre;
     int estado;
+    int fk_lista;
 
     public Item() {
     }
 
-    public Item(long id, String nombre, int estado) {
+    public Item(long id, String nombre, int estado, int fk_lista) {
         this.id = id;
         this.nombre = nombre;
         this.estado = estado;
+        this.fk_lista = fk_lista;
     }
 
     private Item(Cursor cursor) {
         id = cursor.getLong(cursor.getColumnIndex("id"));
         nombre = cursor.getString(cursor.getColumnIndex("nombre"));
         estado = cursor.getInt(cursor.getColumnIndex("estado"));
+        fk_lista = cursor.getInt(cursor.getColumnIndex("fk_lista"));
+
     }
 
     public static ArrayList<Item> getItemList(Context context) {
@@ -34,7 +38,7 @@ public class Item {
                 LocalSQLiteOpenHelper(context);
         SQLiteDatabase db = helper.getReadableDatabase();
         Cursor cursor = db.query(true, "ITEMS", new String[]{"id",
-                        "nombre", "estado"}, null,
+                        "nombre", "estado", "fk_lista"}, null,
                 null,null,null,"nombre", null  );
 
         while (cursor.moveToNext()) {
@@ -54,7 +58,7 @@ public class Item {
         SQLiteDatabase db = helper.getReadableDatabase();
         String where ="id = " + String.valueOf(id);
         Cursor cursor = db.query(true, "ITEMS", new String[]{"id",
-                        "nombre", "estado"}, where,
+                        "nombre", "estado", "fk_lista"}, where,
                 null,null,null,"nombre", null  );
 
         if(cursor.moveToFirst())
@@ -70,6 +74,7 @@ public class Item {
         ContentValues values = new ContentValues();
         values.put("nombre",this.nombre);
         values.put("estado",this.estado);
+        values.put("fk_lista",this.fk_lista);
 
         LocalSQLiteOpenHelper helper = new LocalSQLiteOpenHelper(context);
         SQLiteDatabase db = helper.getWritableDatabase();
@@ -81,6 +86,7 @@ public class Item {
         ContentValues values = new ContentValues();
         values.put("nombre",this.nombre);
         values.put("estado",this.estado);
+        values.put("fk_lista",this.fk_lista);
 
         String whereClause = "id=" + String.valueOf(this.id);
         LocalSQLiteOpenHelper helper = new LocalSQLiteOpenHelper(context);

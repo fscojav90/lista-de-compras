@@ -21,5 +21,11 @@
             android:id="@+id/nav_list"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Mi Lista" />
+
+        <item
+            android:id="@+id/nav_additem"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Añadir Items" />
+
     </group>
 </menu>

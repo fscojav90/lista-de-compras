@@ -24,7 +24,6 @@ public class ListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list, null);
 
-
         listViewMain = (ListView) view.findViewById(R.id.listViewMain);
 
         //getActivity() recuperar referencia actividad padre -> sustituye contexto de ejecución
