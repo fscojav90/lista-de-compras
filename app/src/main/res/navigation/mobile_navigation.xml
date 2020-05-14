@@ -32,7 +32,13 @@
     <fragment
         android:id="@+id/nav_additem"
         android:name="com.ejemplo.listadecompras.AddItemFragment"
-        android:label="Añadir items"
+        android:label="Crear nueva lista de compras"
         tools:layout="@layout/fragment_additem" />
+
+    <fragment
+        android:id="@+id/nav_mylist"
+        android:name="com.ejemplo.listadecompras.MyListFragment"
+        android:label="Listas de compras"
+        tools:layout="@layout/fragment_mylist" />
 
 </navigation>

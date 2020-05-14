@@ -1,23 +1,36 @@
 package com.ejemplo.listadecompras;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
-
-import java.util.ArrayList;
 
 public class AddItemFragment extends Fragment {
 
     Button buttonAddItem;
     LinearLayout addItemLayout;
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        String[] items = new
+                String[addItemLayout.getChildCount()];
+        for(int i=0;i<addItemLayout.getChildCount();i++) {
+            View child = addItemLayout.getChildAt(i);
+            if(child instanceof EditText)
+                items[i] = ((EditText)child).getText().toString();
+        }
+        savedInstanceState.putStringArray("items",items);
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+
 
 
     @Override
@@ -34,9 +47,11 @@ public class AddItemFragment extends Fragment {
         buttonAddItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addItem() ;
+                addItem(null) ;
             }
         });
+
+
 
 
 
@@ -48,10 +63,17 @@ public class AddItemFragment extends Fragment {
         return view;
     }
 
-    private void addItem() {
-        EditText editNewActor = new EditText(getContext());
-        addItemLayout.addView(editNewActor);
+    private void addItem(String content) {
+
+        EditText editNewItem = new EditText(getContext());
+        editNewItem.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
+        if(content!=null)
+            editNewItem.setText(content);
+
+        addItemLayout.addView(editNewItem);
     }
+
+
 
 
     @Override

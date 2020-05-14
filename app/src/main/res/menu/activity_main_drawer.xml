@@ -25,7 +25,11 @@
         <item
             android:id="@+id/nav_additem"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Añadir Items" />
+            android:title="Crear nueva lista de compras" />
 
+        <item
+            android:id="@+id/nav_mylist"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Listas de compras" />
     </group>
 </menu>

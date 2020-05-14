@@ -17,4 +17,8 @@
     <string name="actores">actores</string>
     <string name="anyo_de_aparicion_etiqueta">año de aparición</string>
     <string name="titulo_de_la_pelicula">título</string>
+    <string name="resumen">resumen</string>
+    <string name="crear_lista_1">Lista 1</string>
+    <string name="crear_lista_2">Lista 2</string>
+    <string name="crear_lista_3">Lista 3</string>
 </resources>

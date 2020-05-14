@@ -32,11 +32,19 @@ public class ListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //aquí codigó del botón
+                startViewDVDActivity(id);
 
             }
         });
 
         return view;
+    }
+
+    private void startViewDVDActivity(long dvdId) {
+       // Intent intent = new Intent(getActivity(),
+        //        ViewDVDActivity.class);
+       // intent.putExtra("dvdId",dvdId);
+       // startActivity(intent);
     }
 
 
