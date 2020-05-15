@@ -7,47 +7,28 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_margin="8dp"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <!-- Zona de título de la película -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/titulo_de_la_pelicula"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/addDVD_titulo" />
 
         <!-- Zona del año de aparición -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/anyo_de_aparicion_etiqueta"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
-        <EditText
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/addDVD_anyo" />
 
         <!-- Zona de los actores -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/actores"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:text="@string/items"
+                android:textSize="24sp"
+                android:textStyle="bold" />
             <Button
                 android:id="@+id/buttonAddItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+"
+                android:text="@string/añadir"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
         </LinearLayout>
@@ -59,20 +40,9 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/addDVD_actor1" />
+                android:id="@+id/addItem" />
         </LinearLayout>
         <!-- Zona del resumen -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/resumen"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minLines="8"
-            android:id="@+id/addDVD_resumen" />
 
         <!-- Zona del botón OK -->
         <LinearLayout
@@ -80,13 +50,14 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="right">
+
             <Button
-                android:id="@+id/addDVD_ok"
+                android:id="@+id/addItem_guardar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="OK"
+                android:text="Guardar"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

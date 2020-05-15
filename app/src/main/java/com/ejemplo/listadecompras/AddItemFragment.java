@@ -9,13 +9,28 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class AddItemFragment extends Fragment {
+import java.util.ArrayList;
 
+public class AddItemFragment extends Fragment {
+  //  ArrayList<ListaDeCompra> compras;
+
+
+//aquí iva bn xD
     Button buttonAddItem;
+    Button buttonAddItemGuardar;
+
     LinearLayout addItemLayout;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    //    compras = new ArrayList<>();
+    }
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
@@ -30,6 +45,33 @@ public class AddItemFragment extends Fragment {
         super.onSaveInstanceState(savedInstanceState);
     }
 
+    public void guardarLista(){
+        ListaDeCompra listaDeCompra = new ListaDeCompra();
+
+        for (int i=0;i<addItemLayout.getChildCount();i++) {
+            View child = addItemLayout.getChildAt(i);
+            if (child instanceof EditText) {
+                listaDeCompra.addProducto(new Producto(((EditText) child).getText().toString(), false));
+            }
+        }
+
+        //compras.add(listaDeCompra);
+       // getActivity().getIntent().putExtra("compras", compras);
+
+        //llamar la lista de compras
+        ArrayList<ListaDeCompra> compras = getActivity().getIntent().getParcelableArrayListExtra("compras");
+        //comprobar si la lista de compras es igual a null
+        if(compras == null){
+            compras = new ArrayList<>();
+        }
+        //añadir la nuesta lista a la lista de compras
+        compras.add(listaDeCompra);
+        //guardar la lista de compras
+        getActivity().getIntent().putParcelableArrayListExtra("compras", compras);
+        Toast toast1 = Toast.makeText(getContext(), "Lista guardada!", Toast.LENGTH_SHORT);
+        toast1.show();
+    }
+
 
 
 
@@ -37,8 +79,17 @@ public class AddItemFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_additem, null);
 
+        //contructor par listas lógicas
+      //  compras = new ArrayList<>();
+
+
+
+
+        //fin contructor listas lógicas
+
 
         buttonAddItem = (Button)view.findViewById(R.id.buttonAddItem);
+        buttonAddItemGuardar = (Button)view.findViewById(R.id.addItem_guardar);
 
         EditText editText = new EditText(getContext());
         addItemLayout = (LinearLayout)view.findViewById(R.id.add_itemLayout);
@@ -47,7 +98,18 @@ public class AddItemFragment extends Fragment {
         buttonAddItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addItem(null) ;
+                addItem(null);
+                Toast toast1 = Toast.makeText(getContext(), "Nuevo EditText", Toast.LENGTH_SHORT);
+
+            }
+        });
+
+        //botón gurdar
+        buttonAddItemGuardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                guardarLista();
+
             }
         });
 

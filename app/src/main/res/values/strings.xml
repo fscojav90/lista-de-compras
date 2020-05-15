@@ -21,4 +21,6 @@
     <string name="crear_lista_1">Lista 1</string>
     <string name="crear_lista_2">Lista 2</string>
     <string name="crear_lista_3">Lista 3</string>
+    <string name="items">Items</string>
+    <string name="añadir">+</string>
 </resources>

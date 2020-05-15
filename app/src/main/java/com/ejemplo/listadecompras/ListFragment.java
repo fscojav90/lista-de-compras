@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,6 +19,8 @@ import com.ejemplo.listadecompras.ui.gallery.GalleryFragment;
 import java.util.ArrayList;
 
 public class ListFragment extends Fragment {
+
+    ArrayList<ListaDeCompra> compras;
 
     ListView listViewMain;
     @Override
@@ -51,8 +54,30 @@ public class ListFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        ArrayList<Item> itemList = Item.getItemList(getContext());
-        ItemAdapter itemAdapter = new ItemAdapter(getContext(), itemList);
-        listViewMain.setAdapter(itemAdapter);
+        compras = getActivity().getIntent().getParcelableArrayListExtra("compras");
+        int id = getActivity().getIntent().getIntExtra("id", 0);
+
+        if(compras == null){
+            Toast toast1 = Toast.makeText(getContext(), "No hay listas creadas!!", Toast.LENGTH_SHORT);
+            toast1.show();
+
+        }else {
+
+            for(int i=0;i<compras.size();i++){
+                compras.get(i).setNombre("Lista " + (i + 1));
+
+            }
+            //ArrayList<Item> itemList = Item.getItemList(getContext());
+            ProductoAdapter adapter = new ProductoAdapter(getContext(), compras.get(id).getProductos());
+            //ItemAdapter itemAdapter = new ItemAdapter(getContext(), itemList);
+            listViewMain.setAdapter(adapter);
+
+        }
+
+
+        getActivity().getIntent().getIntExtra("id", 0);
+
+
+
     }
 }
