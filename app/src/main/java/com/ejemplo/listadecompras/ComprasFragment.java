@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -17,7 +18,6 @@ public class ComprasFragment extends Fragment {
 
     ListView listViewCompras;
     ArrayList<ListaDeCompra> compras;
-
 
 
     @Override
@@ -59,7 +59,6 @@ public class ComprasFragment extends Fragment {
 
                 Toast.makeText(getContext(), "Haz presionado: " + compras.get(position).getNombre(), Toast.LENGTH_SHORT).show();
 
-                //pasar id
                 getActivity().getIntent().putExtra("id", position);
 
                 // Crea el nuevo fragmento y la transacción.

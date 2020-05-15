@@ -20,7 +20,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        />
 </LinearLayout>
 
     <!-- layout para la presentación de los items que lleva un TextView y un CheckBox -->

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class ProductoAdapter extends ArrayAdapter<Producto> {
     }
 
     @Override
-    public View getView(int pos, View convertView, ViewGroup parent) {
+    public View getView(final int pos, View convertView, ViewGroup parent) {
         View view;
         if(convertView==null) {
 
@@ -35,11 +36,20 @@ public class ProductoAdapter extends ArrayAdapter<Producto> {
             view = convertView;
         }
 
-        Producto producto = getItem(pos);
+        final Producto producto = getItem(pos);
 
         TextView nombre =(TextView)view.findViewById(R.id.textViewNombre);
         CheckBox estado =(CheckBox) view.findViewById(R.id.checkBoxEstado);
         nombre.setText(producto.getNombre());
+
+        estado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                producto.setEstado(!producto.isEstado());
+                Toast.makeText(getContext(), "presionado: " + pos, Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
 
         if(producto.isEstado()){
@@ -50,4 +60,6 @@ public class ProductoAdapter extends ArrayAdapter<Producto> {
 
         return view;
     }
+
+
 }
