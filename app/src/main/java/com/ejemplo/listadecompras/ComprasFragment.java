@@ -57,7 +57,7 @@ public class ComprasFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Toast.makeText(getContext(), "Haz presionado: " + compras.get(position).getNombre(), Toast.LENGTH_SHORT).show();
+        //        Toast.makeText(getContext(), "Haz presionado: " + compras.get(position).getNombre(), Toast.LENGTH_SHORT).show();
 
                 getActivity().getIntent().putExtra("id", position);
 

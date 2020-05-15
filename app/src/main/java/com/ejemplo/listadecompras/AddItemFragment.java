@@ -19,8 +19,6 @@ import java.util.ArrayList;
 public class AddItemFragment extends Fragment {
   //  ArrayList<ListaDeCompra> compras;
 
-
-//aquí iva bn xD
     Button buttonAddItem;
     Button buttonAddItemGuardar;
 
@@ -50,13 +48,11 @@ public class AddItemFragment extends Fragment {
 
         for (int i=0;i<addItemLayout.getChildCount();i++) {
             View child = addItemLayout.getChildAt(i);
-            if (child instanceof EditText) {
+            //evitar los los productos en blanco
+            if (child instanceof EditText && !((EditText) child).getText().toString().trim().isEmpty()) {
                 listaDeCompra.addProducto(new Producto(((EditText) child).getText().toString(), false));
             }
         }
-
-        //compras.add(listaDeCompra);
-       // getActivity().getIntent().putExtra("compras", compras);
 
         //llamar la lista de compras
         ArrayList<ListaDeCompra> compras = getActivity().getIntent().getParcelableArrayListExtra("compras");
@@ -64,12 +60,33 @@ public class AddItemFragment extends Fragment {
         if(compras == null){
             compras = new ArrayList<>();
         }
-        //añadir la nuesta lista a la lista de compras
-        compras.add(listaDeCompra);
-        //guardar la lista de compras
-        getActivity().getIntent().putParcelableArrayListExtra("compras", compras);
-        Toast toast1 = Toast.makeText(getContext(), "Lista guardada!", Toast.LENGTH_SHORT);
-        toast1.show();
+
+        //añadir la nuesta lista a la lista de compras hasta un maximo de 3
+
+        if(compras.size() < 3){
+
+            if(listaDeCompra.getProductos().size() > 0) {
+                compras.add(listaDeCompra);
+                //guardar la lista de compras
+                getActivity().getIntent().putParcelableArrayListExtra("compras", compras);
+                Toast toast1 = Toast.makeText(getContext(), "Lista guardada!", Toast.LENGTH_SHORT);
+                toast1.show();
+
+            }else {
+                Toast toast1 = Toast.makeText(getContext(), "No se puede guardar una lista vacia!!", Toast.LENGTH_SHORT);
+                toast1.show();
+
+            }
+
+
+        }else {
+            Toast.makeText(getContext(), "No es posible guardar más de 3 listas!!", Toast.LENGTH_SHORT).show();
+        }
+
+
+
+
+
     }
 
 

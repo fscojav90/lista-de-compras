@@ -40,13 +40,13 @@ public class ProductoAdapter extends ArrayAdapter<Producto> {
 
         TextView nombre =(TextView)view.findViewById(R.id.textViewNombre);
         CheckBox estado =(CheckBox) view.findViewById(R.id.checkBoxEstado);
-        nombre.setText(producto.getNombre());
+        nombre.setText(producto.getNombre().trim());
 
         estado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 producto.setEstado(!producto.isEstado());
-                Toast.makeText(getContext(), "presionado: " + pos, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), "presionado: " + pos, Toast.LENGTH_SHORT).show();
 
             }
         });

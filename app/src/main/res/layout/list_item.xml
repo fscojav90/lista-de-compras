@@ -3,25 +3,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:padding="50dp">
+    android:padding="20dp">
 
 
     <TextView
         android:id="@+id/textViewNombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_gravity="fill"
+        android:layout_weight="6"
+        android:gravity="left|center_vertical"
         android:text="@string/producto"
         android:textSize="24sp" />
 
     <CheckBox
         android:id="@+id/checkBoxEstado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_gravity="fill"
+
         android:layout_weight="1"
-        />
+        android:gravity="right|center_vertical" />
+
 </LinearLayout>
 
     <!-- layout para la presentación de los items que lleva un TextView y un CheckBox -->

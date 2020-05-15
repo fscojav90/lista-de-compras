@@ -1,4 +1,4 @@
-package com.ejemplo.listadecompras;
+package com.ejemplo.listadecompras.borrar;
 
 import android.content.Context;
 import android.database.SQLException;

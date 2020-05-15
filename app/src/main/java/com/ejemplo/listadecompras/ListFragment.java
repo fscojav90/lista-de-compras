@@ -1,20 +1,14 @@
 package com.ejemplo.listadecompras;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import com.ejemplo.listadecompras.ui.gallery.GalleryFragment;
 
 import java.util.ArrayList;
 
@@ -35,7 +29,6 @@ public class ListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //aquí codigó del botón
-                startViewDVDActivity(id);
 
             }
         });
@@ -43,12 +36,6 @@ public class ListFragment extends Fragment {
         return view;
     }
 
-    private void startViewDVDActivity(long dvdId) {
-       // Intent intent = new Intent(getActivity(),
-        //        ViewDVDActivity.class);
-       // intent.putExtra("dvdId",dvdId);
-       // startActivity(intent);
-    }
 
 
     @Override

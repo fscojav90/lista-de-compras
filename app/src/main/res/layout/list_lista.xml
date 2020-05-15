@@ -3,15 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:padding="50dp">
+    android:padding="40dp">
 
 
     <TextView
         android:id="@+id/textViewNombreLista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
         android:layout_weight="1"
+        android:gravity="center_horizontal"
         android:text="@string/producto"
         android:textSize="24sp" />
 </LinearLayout>

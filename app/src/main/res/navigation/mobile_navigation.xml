@@ -8,38 +8,14 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.ejemplo.listadecompras.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:label="Inicio"
         tools:layout="@layout/fragment_home"/>
-
-    <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.ejemplo.listadecompras.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.ejemplo.listadecompras.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
-
-    <fragment
-        android:id="@+id/nav_list"
-        android:name="com.ejemplo.listadecompras.ListFragment"
-        android:label="Mi Lista"
-        tools:layout="@layout/fragment_list" />
 
     <fragment
         android:id="@+id/nav_additem"
         android:name="com.ejemplo.listadecompras.AddItemFragment"
         android:label="Crear nueva lista de compras"
         tools:layout="@layout/fragment_additem" />
-
-    <fragment
-        android:id="@+id/nav_mylist"
-        android:name="com.ejemplo.listadecompras.MyListFragment"
-        android:label="Listas de compras"
-        tools:layout="@layout/fragment_mylist" />
 
     <fragment
         android:id="@+id/nav_compras"

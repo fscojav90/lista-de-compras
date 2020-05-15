@@ -7,30 +7,13 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
-
-        <item
-            android:id="@+id/nav_list"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Mi Lista" />
+            android:title="Inicio" />
 
         <item
             android:id="@+id/nav_additem"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Crear nueva lista de compras" />
 
-        <item
-            android:id="@+id/nav_mylist"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Listas de compras" />
 
         <item
             android:id="@+id/nav_compras"
